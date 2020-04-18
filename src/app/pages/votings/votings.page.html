@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Votings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let voting of votings">
+    <ion-card-header [routerLink]="voting._id" tappable>
+      <ion-card-title>{{ voting.question }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <img [src]="voting.image" [routerLink]="voting._id" tappable>
+      <ion-row class="ion-no-padding">
+        <ion-col size="6" class="ion-no-padding">
+          <ion-button fill="clear" expand="full" (click)="upvote(voting)">
+            <ion-icon name="thumbs-up" slot="start"></ion-icon>
+            {{ voting.upvotes }}
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="6" class="ion-no-padding">
+          <ion-button fill="clear" expand="full" (click)="downvote(voting)">
+            <ion-icon name="thumbs-down" slot="start"></ion-icon>
+            {{ voting.downvotes }}
+          </ion-button>
+        </ion-col>
+
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="startVoting()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

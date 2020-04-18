@@ -1,0 +1,29 @@
+.message {
+    padding: 4px !important;
+    border-radius: 10px !important;
+    --background: #f1f1f1;
+    color: #000;
+  }
+  
+  .time {
+    color: #c7c7c7;
+    float: right;
+    font-size: small;
+  }
+  
+  ion-list {
+    max-height: 30vh;
+    overflow: scroll;
+  }
+  
+  .message-input {
+    width: 100%;
+    border: 1px solid var(--ion-color-medium);
+    border-radius: 10px;
+    background: #fff;
+    resize: none;
+  }
+  
+  ion-label {
+      white-space: pre-line !important;
+  }

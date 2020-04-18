@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="votings"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Details gg</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="voting">
+    <h2 class="ion-text-center">{{ voting.question }}</h2>
+    <img [src]="voting.image">
+  
+    <ion-row class="ion-no-padding">
+      <ion-col size="6" class="ion-no-padding">
+        <ion-button fill="clear" expand="full" (click)="upvote()">
+          <ion-icon name="thumbs-up" slot="start" #upvotebtn></ion-icon>
+          {{ voting.upvotes }}
+        </ion-button>
+      </ion-col>
+  
+      <ion-col size="6" class="ion-no-padding">
+        <ion-button fill="clear" expand="full" (click)="downvote()">
+          <ion-icon name="thumbs-down" slot="start" #downvotebtn></ion-icon>
+          {{ voting.downvotes }}
+        </ion-button>
+      </ion-col>
+  
+    </ion-row>
+  
+    <ion-list>
+      <ion-item *ngFor="let com of comments" class="message" lines="none">
+        <ion-label class="ion-text-wrap">
+          {{ com.text }}
+          <p class="time">{{ com.createdAt | date:'short' }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
